@@ -11,7 +11,9 @@ namespace AppDePedidos.Data.Models
     {
         
         public int Id { get; set; }
+        
         [Required]
+        [MaxLength(255)]
         public string Nome { get; set; }
 
         [Display(Name = "Tipo de Cozinha")]
