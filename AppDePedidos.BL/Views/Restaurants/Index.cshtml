@@ -6,29 +6,16 @@
 }
 
 <h2>Index</h2>
-
-<p>
+<div class="btn btn-default">
     @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th></th>
-    </tr>
+</div>
+<br/><br/>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+    @Html.Partial("_RestauranteSumario",item)
 }
 
-</table>
+@section footer{
+   <p> textos personalizados para inserior no footer.</p>
+}
