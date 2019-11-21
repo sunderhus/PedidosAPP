@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body class="vh-100 vw-100 mx-auto">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -31,12 +31,13 @@
     <div class="container body-content">
         @if (TempData["Mensagem"] != null)
         {
+            <br />
             <div class="alert alert-info mt-3">
-                @TempData["Mensagem"]
+                <p class="text-center">@TempData["Mensagem"]</p> 
             </div>
         }
         @RenderBody()
-        <hr />
+        <br />
         <footer class="modal-footer container-fluid">
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
             @RenderSection("footer", required: false)
