@@ -69,8 +69,10 @@ namespace AppDePedidos.BL.Controllers
             if (ModelState.IsValid)
             {
                 _db.Edit(restaurante);
+                TempData["Mensagem"] = "Alteração realizada com sucesso";
                 return RedirectToAction("Details",new {id = restaurante.Id });
             }
+            TempData["Mensagem"] = "Error ao editar. Confira os campos.";
             return View(restaurante);
         }
         [HttpGet]

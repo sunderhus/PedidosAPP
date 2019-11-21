@@ -29,6 +29,12 @@
         </div>
     </div>
     <div class="container body-content">
+        @if (TempData["Mensagem"] != null)
+        {
+            <div class="alert alert-info">
+                @TempData["Mensagem"]
+            </div>
+        }
         @RenderBody()
         <hr />
         <footer class="modal-footer container-fluid">
