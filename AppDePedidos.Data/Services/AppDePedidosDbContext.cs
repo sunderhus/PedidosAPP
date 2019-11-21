@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppDePedidos.Data.Services
 {
-    class AppDePedidosDbContext: DbContext
+    public class AppDePedidosDbContext: DbContext
     {
         public DbSet<Restaurante> Restaurantes { get; set; }
     }

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace AppDePedidos.Data.Services
 {
-    public class RestauranteDados : IRestaurante
+    // classe usada para estudo de como realizar o crud dos dados em memória
+    public class RestauranteDados :IRestaurante
     {
         List<Restaurante> restaurantes;
 

@@ -20,9 +20,10 @@ namespace AppDePedidos.BL
 
             containerBuilder.RegisterControllers(typeof(MvcApplication).Assembly);
             containerBuilder.RegisterApiControllers(typeof(MvcApplication).Assembly);
-            containerBuilder.RegisterType<RestauranteDados>()
+            containerBuilder.RegisterType<SqlRestauranteDados>()
                             .As<IRestaurante>()
-                            .SingleInstance();
+                            .InstancePerHttpRequest();
+            containerBuilder.RegisterType<AppDePedidosDbContext>().InstancePerHttpRequest();
 
             var container = containerBuilder.Build();
 
