@@ -1,5 +1,6 @@
 ﻿using AppDePedidos.Data.Models;
 using AppDePedidos.Data.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,36 @@ namespace AppDePedidos.BL.Api
         {
             var model = _db.GetAll();
             return model;
+        }
+        public Restaurante Get(int id)
+        {
+            var model = _db.GetSingle(id);
+            return model;
+        }
+        public object Post(Restaurante restaurante)
+        {
+            dynamic retorno;
+            
+            if (restaurante != null)
+            {
+                _db.Add(restaurante);
+
+                retorno = new
+                {
+                    status = "1",
+                    mensagem = "Sucesso"
+                };
+
+                return retorno;
+
+            }
+            retorno = new
+            {
+                status = "-1",
+                mensagem = "Error",
+            };
+
+            return retorno;
         }
     }
 }
