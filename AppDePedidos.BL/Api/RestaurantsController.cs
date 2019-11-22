@@ -13,7 +13,7 @@ namespace AppDePedidos.BL.Api
     public class RestaurantsController : ApiController
     {
         public readonly IRestaurante _db;
-
+        public dynamic retornoApi;
         public RestaurantsController(IRestaurante db)
         {
             this._db = db;
@@ -30,28 +30,72 @@ namespace AppDePedidos.BL.Api
         }
         public object Post(Restaurante restaurante)
         {
-            dynamic retorno;
-            
+
             if (restaurante != null)
             {
                 _db.Add(restaurante);
 
-                retorno = new
+                retornoApi = new
                 {
                     status = "1",
                     mensagem = "Sucesso"
                 };
 
-                return retorno;
+                return retornoApi;
 
             }
-            retorno = new
+            retornoApi = new
             {
                 status = "-1",
                 mensagem = "Error",
             };
 
-            return retorno;
+            return retornoApi;
+        }
+        public Restaurante Patch(Restaurante restaurante)
+        {
+            var hasUpdated = _db.Edit(restaurante);
+            
+            if (hasUpdated)
+            {
+                retornoApi = new
+                {
+                    status = "1",
+                    mensagem = "Editado com sucesso."
+                };
+            }
+            else
+            {
+                retornoApi = new
+                {
+                    status = "-1",
+                    mensagem = "Erro ao editar."
+                };
+            }
+            return retornoApi;
+        }
+
+        public Object Delete(int id)
+        {
+            bool wasDeleted = false; 
+            wasDeleted = _db.Delete(id);
+            if (wasDeleted)
+            {
+                retornoApi = new
+                {
+                    status = "1",
+                    mensagem = "Sucesso ao deletar o cadastro."
+                };
+            }
+            else
+            {
+                retornoApi = new
+                {
+                    status = "-1",
+                    mensagem = "Erro ao realizar a remoção do registro. Verifique o ID."
+                };
+            }
+            return retornoApi;
         }
     }
 }

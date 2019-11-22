@@ -12,8 +12,8 @@ namespace AppDePedidos.Data.Services
         IEnumerable<Restaurante> GetAll();
         Restaurante GetSingle(int id);
         void Add(Restaurante restaurante);
-        void Edit(Restaurante restaurante);
-        void Delete(int id);
+        bool Edit(Restaurante restaurante);
+        bool Delete(int id);
 
     }
   

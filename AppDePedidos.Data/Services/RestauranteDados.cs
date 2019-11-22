@@ -52,25 +52,30 @@ namespace AppDePedidos.Data.Services
         /// Edita um resgistro de restaurante baseado em um Id especificado.
         /// </summary>
         /// <param name="restaurante"></param>
-        public void Edit(Restaurante restaurante)
+        public bool Edit(Restaurante restaurante)
         {
             var restauranteExistente = GetSingle(restaurante.Id);
-
+            bool hasEdited = false;
             if (restauranteExistente != null)
             {
                 restauranteExistente.Nome = restaurante.Nome;
                 restauranteExistente.Tipo = restaurante.Tipo;
+                hasEdited = true;
             }
-            
+            return hasEdited;
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            bool wasDeleted = false;
             var restauranteExistente = GetSingle(id);
             if(restauranteExistente != null)
             {
                 restaurantes.Remove(restauranteExistente);
+                wasDeleted = true;
+                return wasDeleted;
             }
+            return wasDeleted;
         }
     }
 }

@@ -29,24 +29,36 @@ namespace AppDePedidos.Data.Services
         /// Deleta um restaurante no contexto
         /// </summary>
         /// <param name="id"></param>
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            bool resp = false;
             var model = _db.Restaurantes.Find(id);
             if(model != null)
             {
                 _db.Restaurantes.Remove(model);
                 _db.SaveChanges();
+                resp = true;
+                return resp;
             }
+            return resp;
+
         }
         /// <summary>
         /// Edita um registro de restaurante no contexto
         /// </summary>
         /// <param name="restaurante"></param>
-        public void Edit(Restaurante restaurante)
+        public bool Edit(Restaurante restaurante)
         {
+            bool hasEdited = false;
+
             var entry = _db.Entry(restaurante);
-            entry.State = EntityState.Modified;
-            _db.SaveChanges();
+            if(entry != null)
+            {
+                entry.State = EntityState.Modified;
+                _db.SaveChanges();
+                hasEdited = true;
+            }
+            return hasEdited;
         }
         /// <summary>
         /// Retorna a listagem de todos os restaurantes 
