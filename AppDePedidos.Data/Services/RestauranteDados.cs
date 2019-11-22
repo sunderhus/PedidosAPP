@@ -64,7 +64,11 @@ namespace AppDePedidos.Data.Services
             }
             return hasEdited;
         }
-
+        /// <summary>
+        /// Remove um resturante a partir de um ID passado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool Delete(int id)
         {
             bool wasDeleted = false;

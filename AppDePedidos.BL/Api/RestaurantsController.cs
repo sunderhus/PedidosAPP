@@ -23,11 +23,13 @@ namespace AppDePedidos.BL.Api
             var model = _db.GetAll();
             return model;
         }
+
         public Restaurante Get(int id)
         {
             var model = _db.GetSingle(id);
             return model;
         }
+
         public object Post(Restaurante restaurante)
         {
 
@@ -38,7 +40,8 @@ namespace AppDePedidos.BL.Api
                 retornoApi = new
                 {
                     status = "1",
-                    mensagem = "Sucesso"
+                    mensagem = "Sucesso",
+                    restauranteAdicionado = restaurante 
                 };
 
                 return retornoApi;
