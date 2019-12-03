@@ -1,13 +1,13 @@
 ﻿@model AppDePedidos.Data.Models.Restaurante
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Exibir";
 }
 
-<h2>Deatails for @Html.DisplayFor(model => model.Nome)</h2>
+    <h2>Exibir - @Html.DisplayFor(model => model.Nome)</h2>
 
 <div>
-    <h4>Restaurante</h4>
+    <h4>confira os dados</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -28,6 +28,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar para listagem", "Index")
 </p>
