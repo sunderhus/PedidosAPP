@@ -4,10 +4,12 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
+    <h1> APP Restaurantes</h1>
     <div>
-        Existem @Model.Count(), restaurantes.
+        Existem @Model.Count(), restaurantes cadastrados.
     </div>
+    <br>
+    @Html.ActionLink("Adicionar Restaurante", "index","Restaurants")
     
 </div>
 
