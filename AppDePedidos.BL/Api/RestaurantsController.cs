@@ -55,7 +55,7 @@ namespace AppDePedidos.BL.Api
 
             return retornoApi;
         }
-        public Restaurante Patch(Restaurante restaurante)
+        public dynamic Patch(Restaurante restaurante)
         {
             var hasUpdated = _db.Edit(restaurante);
             
